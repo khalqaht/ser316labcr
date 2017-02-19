@@ -9,13 +9,16 @@ public class Checking extends Account {
 		super(name);
 	}
 
+	public Checking(String name, float balance) {
+		super(name, balance);
+	}
+	
+	
+
     public static Checking createChecking(String name) {
         return new Checking(name);
     }
 
-	public Checking(String name, float balance) {
-		super(name, balance);
-	}
 
 	/**
 	 * A deposit may be made unless the Checking account is closed
@@ -44,7 +47,7 @@ public class Checking extends Account {
 				numWithdraws++;
 				if (numWithdraws > 10)
 					balance = balance - 2.0f;
-				if (balance < 0.0f) {
+				if (balance < 0.0f) {  
 					setState(State.OVERDRAWN);
 				}
 				return true;

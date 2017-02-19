@@ -3,7 +3,7 @@ package banking.gui;
 import javax.swing.JFrame;
 
 
-// Khalid
+
 /**
  * main method for running the program.
  * @author kevinagary

@@ -14,6 +14,7 @@ class ServerSolution implements AccountServer {
 
 	Map<String,Account> accountMap = null;
 
+	@SuppressWarnings("unchecked")
 	public ServerSolution() {
 		accountMap = new HashMap<String,Account>();
 		File file = new File(fileName);
@@ -21,7 +22,13 @@ class ServerSolution implements AccountServer {
 		try {
 			if (file.exists()) {
 				System.out.println("Reading from file " + fileName + "...");
+				
 				in = new ObjectInputStream(new FileInputStream(file));
+				
+				
+				accountMap = (Map) in.readObject();
+				
+			/*	
 
 				Integer sizeI = (Integer) in.readObject();
 				int size = sizeI.intValue();
@@ -30,6 +37,8 @@ class ServerSolution implements AccountServer {
 					if (acc != null)
 						accountMap.put(acc.getName(), acc);
 				}
+				
+				*/
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -108,11 +117,15 @@ class ServerSolution implements AccountServer {
 		ObjectOutputStream out = null; 
 		try {
 			out = new ObjectOutputStream(new FileOutputStream(fileName));
-
+			
+			 out.writeObject(accountMap);
+/*
 			out.writeObject(Integer.valueOf(accountMap.size()));
 			for (int i=0; i < accountMap.size(); i++) {
-				out.writeObject(accountMap.get(i));
+				out.writeObject(accountMap.get(i)); 
 			}
+			
+			*/
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new IOException("Could not write file:" + fileName);
