@@ -25,8 +25,9 @@ class ServerSolution implements AccountServer {
 				
 				in = new ObjectInputStream(new FileInputStream(file));
 				
-				
+				// changed by Khalid
 				accountMap = (Map) in.readObject();
+				
 				
 			/*	
 
@@ -117,6 +118,8 @@ class ServerSolution implements AccountServer {
 		ObjectOutputStream out = null; 
 		try {
 			out = new ObjectOutputStream(new FileOutputStream(fileName));
+			
+			// changed Khalid 
 			
 			 out.writeObject(accountMap);
 /*
