@@ -1,3 +1,5 @@
+//parent object of an account that is used to show the customer account and it's information
+
 package banking.primitive.core;
 
 public abstract class Account implements java.io.Serializable {
