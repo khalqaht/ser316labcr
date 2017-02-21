@@ -1,3 +1,6 @@
+//child object of an account that is more specific to be savings is used to show the customer account and it's information
+
+
 package banking.primitive.core;
 
 public class Savings extends Account {
