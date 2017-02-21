@@ -21,6 +21,7 @@ public class Savings extends Account {
 			if (balance >= 0.0f) {
 				setState(State.OPEN);
 			}
+		return true; //fixes the problem so it doen't keep giving false	
 		}
 		return false;
 	}
